@@ -14,3 +14,19 @@ img {
 #nav {
 	display: none;
 }
+
+.container {
+	width: 90%;
+}
+
+.views {
+    margin-left: 75%;
+    margin-top: -40px;
+}
+
+.news > .title {
+    font-size: 22px;
+    margin-top: -19px;
+    display: block;
+    max-width: 68%;
+}

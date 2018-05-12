@@ -78,6 +78,7 @@ html {
     font-size: 22px;
     margin-top: -19px;
     display: block;
+    max-width: 90%;
 }
 
 .bottom_info > .read {
