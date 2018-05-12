@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- Tittle -->
+	<title></title>
+
+	<!-- Charset -->
+	<meta charset="utf-8">
+
+	<!-- Iсоn -->
+	<link rel="shortcut icon" href="https://olegdanilov.me/public/images/avatar_rounded.png" type="image/x-icon">
+	
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+	<!-- JS scripts -->
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://olegdanilov.me/public/views.js" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" defer></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script>$(".content").hide();</script>
+
+	<!-- CSS styles -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+	<link rel="stylesheet" href="https://olegdanilov.me/public/style.css">
+
+	<!-- meta tags -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#e9e9e9">
+	<meta name = "viewport" content = "width = 320, initial-scale = 1, user-scalable = no">
+	<meta name="description" class="description" content="Read this incredible article! Hope you have enjoyed by reading!">
+	<meta name="keyword" class="keyword" content="Read this incredible article! Hope you have enjoyed by reading!">
+	<meta class="gdsdsds" property="og:title" content="Read this incredible article! Hope you have enjoyed by reading!">
+	<meta property="og:site_name" content="Oleg Danilov"/>
+	<meta property="og:image" content="/public/images/avatar_rounded.png">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118766006-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-118766006-1');
+	</script>
+
+</head>
+<body>
+	<div id="preloader-main">
+	  <!-- Main page preloader -->
+	  <center><div class="preloader-wrapper big active">
+	    <div class="spinner-layer spinner-green-only">
+	      <div class="circle-clipper left">
+	        <div class="circle"></div>
+	      </div><div class="gap-patch">
+	        <div class="circle"></div>
+	      </div><div class="circle-clipper right">
+	        <div class="circle"></div>
+	      </div>
+	    </div></div>
+	  <br><br><text class="loading_lable Loading">Loading...</text></center>
+	<!-- Main page preloader END -->
+	</div>
+	<navigation id="nav" class="z-depth-1">Navigation <br></navigation>
+	<center style="margin-top: -6px;"><div class="waves-effect" style="font-size: 18px; color: gray; cursor: pointer; margin-top: 27px;"><a href="../"><text class='main_page'>Main page</text></a></center></div>
+	<div style="padding-bottom: 10px;background-color: #efefef;padding-left: 0.5%;padding-right: 0.5%;margin-top: -1%;" class="content container news_main">
+		<div id="news">
+			<div class="news">
+				<div class="title"></div>
+				<div class="views"><i class="material-icons">visibility</i></div>
+				<div class="text"></div>
+				<div class="time"></div>
+				<div class="rate">
+					<img src="https://image.flaticon.com/icons/svg/126/126473.svg" alt="like" class="like_img"><div class="like"></div>
+					<img src="https://image.flaticon.com/icons/svg/126/126504.svg" alt="dislike" class="dislike_img"><div class="dislike"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container add_coment content z-depth-1" style="padding-bottom: 10px;">
+		<div class="commentForm"><p go_to="commentForm"></p>
+			<div class="row">
+				<div class="input-field col s6 name_input">
+					<input value="" id="name" type="text" class="validate" maxlength="32">
+					<label class="active" for="first_name2"><text class='ur_name'>Your name or nickname</text></label>
+				</div>
+			</div>
+			<div class="row" style="margin-top: -32px;">
+				<div class="input-field col s12">
+					<input value="" id="comment_text" type="text" class="validate" maxlength="200"></input>
+					<label class="active" for="comment_text"><text class='text_text'>Text</text></label>
+				</div>
+			</div>
+			<script>
+				function publish_comment(captcha) {
+					var captcha_res = captcha;
+					$(".publich_comment").click(function() {
+						publish_comment(captcha_res);
+					});
+					if ($("#name").val() == "") {
+						var name = "Anonymous";
+					} else {
+						var name = $("#name").val();
+					}
+					if ($.trim($("#comment_text").val()).length < 3 || $.trim($("#comment_text").val()).length > 200) {
+						Materialize.toast("Yоur text is too smal or too long", 5000);
+					} else {
+						$.ajax({
+							url: location.href + "/addComment/" + name + "/" + $("#comment_text").val() + "/" + captcha,
+							success: function(data) { 
+								if (data.success) {
+									location.reload(true);
+								} else {
+									Materialize.toast(data.error.description, 5000);
+								}
+							}
+						});
+					}
+				}
+			</script>
+			<button class="btn waves-effect btn-small publich_comment g-recaptcha" data-sitekey="6LcAyVgUAAAAAESj9TmuoNqgQ4lvFR2MZXmXnope" data-callback="publish_comment"><text style="font-size: 18px;" class="publish_comment">Publish comment</text></button><br>
+			<br><b><text class='note'>Note!</text></b> <text class='comment_willbe_public_avaliable'>Your comment will be public avaliable</text>
+		</div>
+	</div><p go_to="commentList"></p>
+	<div class="container z-depth-1 coments content"></div>
+</body>
+</html>
