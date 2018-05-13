@@ -41,7 +41,8 @@ $(document).ready(function() {
 						$(".gdsdsds").attr("content", result.data[0].title + " - Oleg Danilov");
 						$(".keyword").attr("content", result.data[0].title + " - Oleg Danilov");
 						if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-							$("head").append('<link rel="stylesheet" type="text/css" href="https://olegdanilov.me/public/m.css">')
+							$("head").append('<link rel="stylesheet" type="text/css" href="https://olegdanilov.me/public/m.css">');
+							$(".news_main").removeClass("container");
 						} else {
 							$(".news_main").css("padding-left", "12%");
 							$(".news_main").css("padding-right", "12%");
