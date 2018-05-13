@@ -12,7 +12,6 @@ $(document).ready(function() {
 
 	$(document).ajaxError(function() {
 		Materialize.toast("<text class='unknown_error'>Something went wrong. Try again later</text>", 10000);
-		translate();
 	});
 
 	function timeConverter(UNIX_timestamp){
@@ -48,7 +47,6 @@ $(document).ready(function() {
 				text += "</div>";
 				$("#news").append(text);
 			}
-			translate();
 			$(".read").click(function() {
 				window.location.replace("https://olegdanilov.me/news/" + $(this).attr("id"));
 			});
@@ -63,8 +61,6 @@ $(document).ready(function() {
 	translate();
 
 });
-
-translate();
 
 function get_lang() {
 	return navigator && (

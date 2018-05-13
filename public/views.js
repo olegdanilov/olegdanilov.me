@@ -78,7 +78,6 @@ $(document).ready(function() {
 					}
 					$(".coments").html(text);
 					$(".Loading").html("<text class='loading_lable'></text>");
-					translate();
 					// Preloader
 					setInterval(function() {
 						$("#preloader-main").fadeOut("500");
@@ -153,8 +152,6 @@ $(document).ready(function() {
 	translate();
 
 });
-
-translate();
 
 function get_lang() {
 	return navigator && (
