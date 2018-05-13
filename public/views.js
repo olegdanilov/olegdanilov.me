@@ -40,6 +40,7 @@ $(document).ready(function() {
 						});
 						$(".gdsdsds").attr("content", result.data[0].title + " - Oleg Danilov");
 						$(".keyword").attr("content", result.data[0].title + " - Oleg Danilov");
+						$(".time").html(main.timeConverter(Number($(".time").html())));
 						if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 							$("head").append('<link rel="stylesheet" type="text/css" href="https://olegdanilov.me/public/m.css">');
 							$(".news_main").removeClass("container");
@@ -48,7 +49,7 @@ $(document).ready(function() {
 							$(".news_main").css("padding-right", "12%");
 						}
 						content.render_comments();
-						navigation();
+						user.navigation();
 					} else {
 						$(".loading_lable").html(result.error.description);
 					}
@@ -88,97 +89,98 @@ $(document).ready(function() {
 					}, 500);
 				}
 			});
-		}
-	};
-
-	$(document).ajaxError(function() {
-		Materialize.toast("<text class='unknown_error'>Something went wrong. Try again later</text>", 10000);
-	});
-
-	content.render_article();
-
-	function navigation() {
-		// Apply navigation system
-		$(".nav_").each(function() {
-			var it_html = $(this).html();
-			$("navigation").append('<headline go_to="' + $(this).attr("go_to") + '">' + it_html + '</headline><br>');
-		});
-		$("navigation headline").each(function() {
-			$(this).addClass("waves-effect");
-			var class_nav = $(this).attr("go_to");
-			$(this).html('• ' + $(this).html());
-			$(this).click(function() {
-				$('html, body').animate({scrollTop: $("p[go_to=" + class_nav + "]").offset().top}, 800);
+		},
+		init_rating: function() {
+			$(".like_img").click(function() {
+				var news_id = location.href.replace("https://olegdanilov.me/news/", "");
+				$.ajax({
+					url: "/news/" + news_id + "/rateNews/1",
+					success: function(data) {
+						if (data.success) {
+							Materialize.toast("Yоu liked it!", 4000);
+							Materialize.toast(data.error.description, 4000);
+						} else if (data.error.id == 3) {
+							Materialize.toast(data.error.description, 4000);
+						}
+					}
+				});
 			});
-		});
+
+			$(".dislike_img").click(function() {
+				var news_id = location.href.replace("https://olegdanilov.me/news/", "");
+				$.ajax({
+					url: "/news/" + news_id + "/rateNews/0",
+					success: function(data) {
+						if (data.success) {
+							Materialize.toast("Yоu disliked it!", 4000);
+						} else if (data.error.id == 2) {
+							Materialize.toast(data.error.description, 4000);
+						} else if (data.error.id == 3) {
+							Materialize.toast(data.error.description, 4000);
+						}
+					}
+				});
+			});
+		}
 	}
 
-	$(".time").html(main.timeConverter(Number($(".time").html())));
-	$(".like_img").click(function() {
-		var news_id = location.href.replace("https://olegdanilov.me/news/", "");
-		$.ajax({
-			url: "/news/" + news_id + "/rateNews/1",
-			success: function(data) {
-				if (data.success) {
-					Materialize.toast("Yоu liked it!", 4000);
-					Materialize.toast(data.error.description, 4000);
-				} else if (data.error.id == 3) {
-					Materialize.toast(data.error.description, 4000);
-				}
+	user = {
+		getFingerPrint: function() {
+			new Fingerprint2().get(function(result, components) {
+				return result;
+			});
+		},
+		navigation: function() {
+			// Apply navigation system
+			$(".nav_").each(function() {
+				var it_html = $(this).html();
+				$("navigation").append('<headline go_to="' + $(this).attr("go_to") + '">' + it_html + '</headline><br>');
+			});
+			$("navigation headline").each(function() {
+				$(this).addClass("waves-effect");
+				var class_nav = $(this).attr("go_to");
+				$(this).html('• ' + $(this).html());
+				$(this).click(function() {
+					$('html, body').animate({scrollTop: $("p[go_to=" + class_nav + "]").offset().top}, 800);
+				});
+			});
+		},
+		translate: function() {
+			if (user.get_lang() == "uk-UA" || user.get_lang() == "uk" || user.get_lang() == "uk-ua") {
+				$.ajax({
+					url: "https://olegdanilov.me/public/lang_packs/ua.json",
+					success: function(data) {
+						$("text").each(function() {
+							$(this).html(data[$(this).attr("class")]);
+						});
+					}
+				});
 			}
-		});
-	});
-
-	$(".dislike_img").click(function() {
-		var news_id = location.href.replace("https://olegdanilov.me/news/", "");
-		$.ajax({
-			url: "/news/" + news_id + "/rateNews/0",
-			success: function(data) {
-				if (data.success) {
-					Materialize.toast("Yоu disliked it!", 4000);
-				} else if (data.error.id == 2) {
-					Materialize.toast(data.error.description, 4000);
-				} else if (data.error.id == 3) {
-					Materialize.toast(data.error.description, 4000);
-				}
+			if (user.get_lang() == "ru-RU" || user.get_lang() == "ru" || user.get_lang() == "ru-ru") {
+				$.ajax({
+					url: "https://olegdanilov.me/public/lang_packs/ru.json",
+					success: function(data) {
+						$("text").each(function() {
+							$(this).html(data[$(this).attr("class")]);
+						});
+					}
+				});
 			}
-		});
-	});
+		},
+		get_lang: function() {
+			return navigator && (
+				navigator.language ||
+				navigator.userLanguage ||
+				null );	
+		}
+	}
 
-	$(".users").each(function() {
-		$(this).addClass("z-depth-2");
-	});
-
-	translate();
+	content.render_article();
+	content.init_rating();
+	user.translate();
 
 });
 
-function get_lang() {
-	return navigator && (
-		navigator.language ||
-		navigator.userLanguage ||
-		null );	
-}
-
-function translate() {
-	if (get_lang() == "uk-UA" || get_lang() == "uk" || get_lang() == "uk-ua") {
-		$.ajax({
-			url: "https://olegdanilov.me/public/lang_packs/ua.json",
-			success: function(data) {
-				$("text").each(function() {
-					$(this).html(data[$(this).attr("class")]);
-				});
-			}
-		});
-	}
-	if (get_lang() == "ru-RU" || get_lang() == "ru" || get_lang() == "ru-ru") {
-		$.ajax({
-			url: "https://olegdanilov.me/public/lang_packs/ru.json",
-			success: function(data) {
-				$("text").each(function() {
-					$(this).html(data[$(this).attr("class")]);
-				});
-			}
-		});
-	}
-}
+$(document).ajaxError(function() {
+	Materialize.toast("<text class='unknown_error'>Something went wrong. Try again later</text>", 10000);
+});
