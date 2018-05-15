@@ -66,14 +66,16 @@
 	<!-- Main page preloader END -->
 	</div>
 	<navigation id="nav" class="z-depth-1">Navigation<br></navigation>
-	<center style="margin-top: -6px;"><div class="waves-effect" style="font-size: 18px; color: gray; cursor: pointer; margin-top: 27px;"><a href="../"><text class='main_page'>Main page</text></a></center></div>
-	<div style="padding-bottom: 10px;background-color: #efefef;padding-left: 1%;padding-right: 1%;margin-top: -1%;" class="content container news_main">
+	<center class="center"><div class="waves-effect main-page-btn" class="center_a1"><a href="../"><text class='main_page'>Main page</text></a></center></div>
+	<div class="content container news_main">
 		<div id="news">
 			<div class="news">
 				<div class="title"></div>
-				<div class="views">Views:</div>
 				<div class="text"></div>
-				<div class="time"></div>
+				<div class="row">
+					<div class="views"><text class="views_text">Views</text>:</div>
+					<div class="time"></div>
+				</div>
 				<div class="rate">
 					<img src="https://image.flaticon.com/icons/svg/126/126473.svg" alt="like" class="like_img"><div class="like"></div>
 					<img src="https://image.flaticon.com/icons/svg/126/126504.svg" alt="dislike" class="dislike_img"><div class="dislike"></div>
@@ -81,7 +83,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container add_coment content z-depth-1" style="padding-bottom: 10px;">
+	<div class="container add_coment content z-depth-1">
 		<div class="commentForm"><p go_to="commentForm"></p>
 			<div class="row">
 				<div class="input-field col s6 name_input">
@@ -89,7 +91,7 @@
 					<label class="active" for="first_name2"><text class='ur_name'>Your name or nickname</text></label>
 				</div>
 			</div>
-			<div class="row" style="margin-top: -32px;">
+			<div class="row a2">
 				<div class="input-field col s12">
 					<input value="" id="comment_text" type="text" class="validate" maxlength="200"></input>
 					<label class="active" for="comment_text"><text class='text_text'>Text</text></label>
@@ -122,7 +124,7 @@
 					}
 				}
 			</script>
-			<button class="btn waves-effect btn-small publich_comment g-recaptcha" data-sitekey="6LcAyVgUAAAAAESj9TmuoNqgQ4lvFR2MZXmXnope" data-callback="publish_comment"><text style="font-size: 18px;" class="publish_comment">Publish comment</text></button><br>
+			<button class="btn waves-effect btn-small publich_comment g-recaptcha" data-sitekey="6LcAyVgUAAAAAESj9TmuoNqgQ4lvFR2MZXmXnope" data-callback="publish_comment"><text class="publish_comment">Publish comment</text></button><br>
 			<br><b><text class='note'>Note!</text></b> <text class='comment_willbe_public_avaliable'>Your comment will be public avaliable</text>
 		</div>
 	</div><p go_to="commentList"></p>

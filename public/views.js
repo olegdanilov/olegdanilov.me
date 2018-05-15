@@ -38,9 +38,6 @@ $(document).ready(function() {
 						$("a").each(function() {
 							$(this).addClass("waves-effect");
 						});
-						$(".gdsdsds").attr("content", result.data[0].title + " - Oleg Danilov");
-						$(".keyword").attr("content", result.data[0].title + " - Oleg Danilov");
-						$(".time").html(main.timeConverter(Number($(".time").html())));
 						if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 							$("head").append('<link rel="stylesheet" type="text/css" href="https://olegdanilov.me/public/m.css">');
 							$(".news_main").removeClass("container");

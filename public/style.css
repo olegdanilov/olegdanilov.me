@@ -59,11 +59,6 @@ html {
 	width: 50%;
 }
 
-#Useful {
-	display: inline-block;
-    margin-left: 22px;
-}
-
 .btn {
 	background-color: #1d85ffd1;
     padding-left: 15px;
@@ -93,7 +88,6 @@ html {
 }
 
 .news {
-    padding-left: 4px;
     margin-top: 46px;
 }
 
@@ -111,7 +105,7 @@ html {
 	padding-top: 12px;
 }
 
-.news > .time {
+.news > .row > .time {
     color: gray;
     font-size: 12px;
     text-align: right;
@@ -193,8 +187,42 @@ p {
 }
 
 .views {
-    margin-left: 90%;
-    margin-top: -22px;
     font-size: 18px;
     color: gray;
+    text-align: right;
+}
+
+.center {
+    margin-top: -6px;
+}
+
+.center_a1 {
+    font-size: 18px; 
+    color: gray; 
+    cursor: pointer; 
+    margin-top: 27px;
+}
+
+.news_main {
+    padding-bottom: 10px;
+    background-color: #efefef;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-top: -1%;
+}
+
+.add_coment {
+    padding-bottom: 10px;
+}
+
+.add_coment > .a2 {
+    margin-top: -32px;
+}
+
+.publish_comment {
+    font-size: 18px;
+}
+
+.main-page-btn {
+    margin-top: 29px;
 }
