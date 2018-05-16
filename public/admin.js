@@ -44,7 +44,13 @@ cms = {
 	publish: function() {
 		main.getCookie("key", function(key) {
 			$.ajax({
-				url: "https://olegdanilov.me/admin/" + key + "/add_news/" + $("#news_title").val() + "/" + $("#news_text").val(),
+				type: "POST",
+				url: "https://olegdanilov.me/admin/add_news/",
+				data: {
+					text: $("#news_text").val(),
+					title: $("#news_title").val(),
+					token: key
+				},
 				success: function(data) {
 					if (data.success) {
 						Materialize.toast("News was published!", 5000);
@@ -60,13 +66,19 @@ cms = {
 	save_draft: function() {
 		main.getCookie("key", function(key) {
 			$.ajax({
-				url: "https://olegdanilov.me/admin/" + key + "/save_draft/" + $("#news_title").val() + "/" + $("#news_text").val(),
+				type: "POST",
+				url: "https://olegdanilov.me/admin/save_draft",
+				data: {
+					text: $("#news_text").val(),
+					token: key,
+					title: $("#news_title").val()
+				},
 				success: function(data) {
 					if (data.success) {
 						Materialize.toast("Draft was saved!", 1000);
 					} else {
 						Materialize.toast("Draft wasn't saved!", 5000);
-						setTimeout(cms.logout, 5000);
+						cms.logout();
 					}
 				}
 			})
@@ -94,7 +106,7 @@ cms = {
 			success: function(news) {
 				for (var i = 0; i < news.data.length; i++) {
 					var text = "";
-					text += "<tr><td>";
+					text += "<tr class='news_" + news.data[i].id + "'><td>";
 					text += news.data[i].id;
 					text += "</td><td>";
 					text += news.data[i].title;
@@ -110,6 +122,7 @@ cms = {
 					$(".news_list_table").append(text);
 				}
 				cms.init_delete_news();
+				cms.init_edit_news();
 			}
 		});
 	},
@@ -124,6 +137,44 @@ cms = {
 							Materialize.toast("News successfuly deleted!", 5000);
 						} else {
 							Materialize.toast("Access denied", 5000);
+						}
+					}
+				});
+			});
+		});
+	},
+	init_edit_news: function() {
+		$(".edit_news").click(function() {
+			var news_id = $(this).attr("news_id");
+			main.getCookie("key", function(key) {
+				$.ajax({
+					url: "https://olegdanilov.me/news/" + news_id + "/content",
+					success: function(data) {
+						$("#news_text_edit").val(data.data[0].text);
+						$(".save_edited_news").attr("news_id", news_id);
+						cms.save_edited_news();
+					}
+				});
+			});
+		});
+	},
+	save_edited_news: function() {
+		$(".save_edited_news").click(function() {
+			var news_id = $(this).attr("news_id");
+			main.getCookie("key", function(key) {
+				$.ajax({
+					type: "POST",
+					url: "https://olegdanilov.me/admin/edit_news",
+					data: {
+						text: $("#news_text_edit").val(),
+						token: key,
+						news_id: news_id
+					},
+					success: function(data) {
+						if (data.success) {
+							location.reload(true);
+						} else {
+							Materialize.toast("Access denied!", 5000);
 						}
 					}
 				});

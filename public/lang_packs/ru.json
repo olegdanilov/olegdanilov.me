@@ -8,9 +8,11 @@
 	"text_text": "Текст",
 	"publish_comment": "Опубликовать комментарий",
 	"note": "Внимание!",
-	"comment_willbe_public_avaliable": "Ваш комментарий будет публично доступным",
+	"comment_willbe_public_avaliable": "Ваш комментарий будет публично доступным! Если желаете, можете оставить имя пустым.",
 	"my_name": "Олег Данилов",
 	"whо_am_i": "Кто я?",
 	"i_m_back_end_dev": "Я back-end веб-раработчик.",
-	"views_text": "Просмотры"
+	"views_text": "Просмотры",
+	"published_time": "Опубликовано: ",
+	"published_time_edited": "Отредактировано: "
 }

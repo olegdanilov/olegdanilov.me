@@ -65,16 +65,17 @@
 	  <br><br><text class="loading_lable Loading">Loading...</text></center>
 	<!-- Main page preloader END -->
 	</div>
-	<navigation id="nav" class="z-depth-1">Navigation<br></navigation>
+	<!--<navigation id="nav" class="z-depth-1">Navigation<br></navigation>-->
 	<center class="center"><div class="waves-effect main-page-btn" class="center_a1"><a href="../"><text class='main_page'>Main page</text></a></center></div>
 	<div class="content container news_main">
 		<div id="news">
 			<div class="news">
 				<div class="title"></div>
-				<div class="text"></div>
+				<div class="text"></div><br><br><br>
 				<div class="row">
 					<div class="views"><text class="views_text">Views</text>:</div>
-					<div class="time"></div>
+					<div class="time"><text class="published_time">Published: </text></div>
+					<div class="time_edited"><text class="published_time_edited">Edited: </text></div>
 				</div>
 				<div class="rate">
 					<img src="https://image.flaticon.com/icons/svg/126/126473.svg" alt="like" class="like_img"><div class="like"></div>
@@ -87,13 +88,13 @@
 		<div class="commentForm"><p go_to="commentForm"></p>
 			<div class="row">
 				<div class="input-field col s6 name_input">
-					<input value="" id="name" type="text" class="validate" maxlength="32">
+					<input value="" id="name" type="text" class="validate" maxlength="32"  data-length="32">
 					<label class="active" for="first_name2"><text class='ur_name'>Your name or nickname</text></label>
 				</div>
 			</div>
 			<div class="row a2">
 				<div class="input-field col s12">
-					<input value="" id="comment_text" type="text" class="validate" maxlength="200"></input>
+					<input value="" id="comment_text" type="text" class="validate" maxlength="200" data-length="200"></input>
 					<label class="active" for="comment_text"><text class='text_text'>Text</text></label>
 				</div>
 			</div>

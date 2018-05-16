@@ -31,7 +31,8 @@ $(document).ready(function() {
 						$(".title").html(result.data[0].title);
 						$("title").html(result.data[0].title + " - Oleg Danilov");
 						$(".text").html(result.data[0].text);
-						$(".time").html(main.timeConverter(result.data[0].time));
+						$(".time").append(main.timeConverter(result.data[0].time));
+						$(".time_edited").append(main.timeConverter(result.data[0].time_edited));
 						$(".like").html(result.rating.like);
 						$(".dislike").html(result.rating.dislike);
 						$(".views").append("<div class='text_views'>" + result.rating.views + "</div>");
@@ -46,7 +47,7 @@ $(document).ready(function() {
 							$(".news_main").css("padding-right", "12%");
 						}
 						content.render_comments();
-						user.navigation();
+						//user.navigation();
 					} else {
 						$(".loading_lable").html(result.error.description);
 					}
