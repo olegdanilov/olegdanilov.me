@@ -80,7 +80,7 @@ function translate() {
 			}
 		});
 	}
-	if (get_lang() == "ru-RU" || get_lang() == "ru" || get_lang() == "ru-ru") {
+	if (get_lang() == "ru-RU" || get_lang() == "ru" || get_lang() == "ru-ru" && navigator.languages[1] !== "en-GB" && navigator.languages[1] !== "en-US") {
 		$.ajax({
 			url: "https://olegdanilov.me/public/lang_packs/ru.json",
 			success: function(data) {

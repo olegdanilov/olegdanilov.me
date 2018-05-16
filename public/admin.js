@@ -75,7 +75,7 @@ cms = {
 				},
 				success: function(data) {
 					if (data.success) {
-						Materialize.toast("Draft was saved!", 1000);
+						//...
 					} else {
 						Materialize.toast("Draft wasn't saved!", 5000);
 						cms.logout();
@@ -92,7 +92,6 @@ cms = {
 					if (data.success) {
 						$("#news_title").val(data.data.title);
 						$("#news_text").val(data.data.text);
-						Materialize.toast("Draft was loaded!", 5000);
 					} else {
 						cms.logout();
 					}

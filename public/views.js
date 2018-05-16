@@ -154,7 +154,7 @@ $(document).ready(function() {
 					}
 				});
 			}
-			if (user.get_lang() == "ru-RU" || user.get_lang() == "ru" || user.get_lang() == "ru-ru") {
+			if ((user.get_lang() == "ru-RU" || user.get_lang() == "ru" || user.get_lang() == "ru-ru") && (navigator.languages[1] !== "en-GB" && navigator.languages[1] !== "en-US")) {
 				$.ajax({
 					url: "https://olegdanilov.me/public/lang_packs/ru.json",
 					success: function(data) {
