@@ -21,7 +21,7 @@ cms = {
 						url: "https://olegdanilov.me/admin/login/" + $("#Username").val() + "/" + $("#Password").val(),
 						success: function(data) {
 							if (data.success) {
-								Materialize.toast("Successful auth!", 5000);
+								Materialize.toast("Successful auth!", 1000);
 								document.cookie="key=" + data.data.token;
 								$("#authed").show();
 								$("#auth").hide();
@@ -63,7 +63,7 @@ cms = {
 				url: "https://olegdanilov.me/admin/" + key + "/save_draft/" + $("#news_title").val() + "/" + $("#news_text").val(),
 				success: function(data) {
 					if (data.success) {
-						Materialize.toast("Draft was saved!", 5000);
+						Materialize.toast("Draft was saved!", 1000);
 					} else {
 						Materialize.toast("Draft wasn't saved!", 5000);
 						setTimeout(cms.logout, 5000);
@@ -87,6 +87,48 @@ cms = {
 				}
 			}); 
 		});
+	},
+	get_news: function() {
+		$.ajax({
+			url: "https://olegdanilov.me/news",
+			success: function(news) {
+				for (var i = 0; i < news.data.length; i++) {
+					var text = "";
+					text += "<tr><td>";
+					text += news.data[i].id;
+					text += "</td><td>";
+					text += news.data[i].title;
+					text += "</td><td>";
+					text += news.data[i].text.replace(/<\/?[^>]+>/g,'');
+					text += "</td><td>";
+					text += main.timeConverter(news.data[i].time);
+					text += "</td><td>";
+					text += "<div class='delete_news btn btn-small waves-effect' news_id='" + news.data[i].id + "'>Delete<div>";
+					text += "</td><td>";
+					text += "<div class='edit_news btn btn-small waves-effect' news_id='" + news.data[i].id + "'>Edit<div>";
+					text += "</td></tr>"
+					$(".news_list_table").append(text);
+				}
+				cms.init_delete_news();
+			}
+		});
+	},
+	init_delete_news: function() {
+		$(".delete_news").click(function() {
+			var news_id = $(this).attr("news_id");
+			main.getCookie("key", function(key) {
+				$.ajax({
+					url: "https://olegdanilov.me/admin/" + key + "/rm_news/" + news_id,
+					success: function(data) {
+						if (data.success) {
+							Materialize.toast("News successfuly deleted!", 5000);
+						} else {
+							Materialize.toast("Access denied", 5000);
+						}
+					}
+				});
+			});
+		});
 	}
 }
 
@@ -94,12 +136,25 @@ main = {
 	getCookie: function(name, callback) {
 		var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
 		callback(matches ? decodeURIComponent(matches[1]) : undefined);
+	},
+	timeConverter: function(UNIX_timestamp){
+		var a = new Date(UNIX_timestamp * 1000);
+		var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+		var year = a.getFullYear();
+		var month = months[a.getMonth()];
+		var date = a.getDate();
+		var hour = a.getHours();
+		var min = a.getMinutes();
+		var sec = a.getSeconds();
+		var time = date + ' ' + month + ' ' + year + ' at ' + hour + ':' + min + ':' + sec ;
+		return time;
 	}
 }
 
 cms.check_auth();
 cms.get_draft();
-setInterval(cms.save_draft, 5000);
+cms.get_news();
+setInterval(cms.save_draft, 20000);
 
 $(".add_news").click(function() {
 	cms.publish();
