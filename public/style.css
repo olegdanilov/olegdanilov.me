@@ -69,10 +69,21 @@ html {
 	background-color: #1d85ffd1;
 }
 
+.last_news > .news > .title {
+    font-size: 23px;
+    margin-top: -19px;
+    display: inline;
+    max-width: 90%;
+    cursor: pointer;
+}
+.last_news > .news > .title:hover {
+    color: #1d85ffd1;
+}
+
 .news > .title {
     font-size: 22px;
     margin-top: -19px;
-    display: block;
+    display: inline;
     max-width: 90%;
 }
 

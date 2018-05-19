@@ -76,15 +76,10 @@ $(document).ready(function() {
 						$(".grecaptcha-badge").hide();
 					}
 					$(".coments").html(text);
-					$(".Loading").html("<text class='loading_lable'></text>");
 					// Preloader
-					setInterval(function() {
-						$("#preloader-main").fadeOut("500");
-						setInterval(function() {
-							$(".content").fadeIn("500");
-							// Show content
-						}, 500);
-					}, 500);
+					$("#preloader-main").hide();
+					$(".content").fadeIn("slow");
+					// Show content
 				}
 			});
 		},
@@ -95,10 +90,9 @@ $(document).ready(function() {
 					url: "/news/" + news_id + "/rateNews/1",
 					success: function(data) {
 						if (data.success) {
-							Materialize.toast("Yоu liked it!", 4000);
-							Materialize.toast(data.error.description, 4000);
-						} else if (data.error.id == 3) {
-							Materialize.toast(data.error.description, 4000);
+							Materialize.toast("Yоu liked it!", 3000);
+						} else {
+							Materialize.toast(data.error.description, 3000);
 						}
 					}
 				});
@@ -110,11 +104,9 @@ $(document).ready(function() {
 					url: "/news/" + news_id + "/rateNews/0",
 					success: function(data) {
 						if (data.success) {
-							Materialize.toast("Yоu disliked it!", 4000);
-						} else if (data.error.id == 2) {
-							Materialize.toast(data.error.description, 4000);
-						} else if (data.error.id == 3) {
-							Materialize.toast(data.error.description, 4000);
+							Materialize.toast("Yоu disliked it!", 3000);
+						} else {
+							Materialize.toast(data.error.description, 3000);
 						}
 					}
 				});
@@ -175,7 +167,7 @@ $(document).ready(function() {
 
 	content.render_article();
 	content.init_rating();
-	user.translate();
+	//user.translate(); Nоt nоw, please. It so badly works
 
 });
 

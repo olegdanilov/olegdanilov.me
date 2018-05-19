@@ -1,15 +1,6 @@
 $(".content").hide(); // Hide content wile page not loaded
 $(document).ready(function() {
 
-	// Preloader
-	setInterval(function() {
-		$("#preloader-main").fadeOut("500")
-		setInterval(function() {
-			$(".content").fadeIn("500");
-			// Show content
-		}, 500);
-	}, 500);
-
 	$(document).ajaxError(function() {
 		Materialize.toast("<text class='unknown_error'>Something went wrong. Try again later</text>", 10000);
 	});
@@ -34,13 +25,13 @@ $(document).ready(function() {
 			for (var i = 0; i < data.length; i++) {
 				var text = "";
 				text += "<div class='news'>";
-				text += "<div class='title'>";
+				text += "<div class='title read waves-effect' id='" + data[i].id + "'>";
 				text += data[i].title;
 				text += "</div>";
 				text += "<div class='text'>";
 				text += data[i].text.replace(/<\/?[^>]+>/g,'');
 				text += "</div>";
-				text += "<div class='bottom_info'><div class='read' id='" + data[i].id + "'><btn class='waves-effect'><text class='open_article'>Оpen article</text></btn></div>";
+				text += "<div class='bottom_info'>";
 				text += "<div class='time'>";
 				text += timeConverter(data[i].time);
 				text += "</div></div>";
@@ -55,10 +46,14 @@ $(document).ready(function() {
 				$(".last_news").css("padding-left", "0%");
 				$(".last_news").css("padding-right", "0%");
 			} 
+			// Preloader
+			$("#preloader-main").hide();
+			$(".content").fadeIn("slow");
+			// Show content
 		}
 	})
 
-	translate();
+	//translate();
 
 });
 
@@ -80,7 +75,7 @@ function translate() {
 			}
 		});
 	}
-	if (get_lang() == "ru-RU" || get_lang() == "ru" || get_lang() == "ru-ru" && navigator.languages[1] !== "en-GB" && navigator.languages[1] !== "en-US") {
+	if ((user.get_lang() == "ru-RU" || user.get_lang() == "ru" || user.get_lang() == "ru-ru") && (navigator.languages[1] !== "en-GB" && navigator.languages[1] !== "en-US")) {
 		$.ajax({
 			url: "https://olegdanilov.me/public/lang_packs/ru.json",
 			success: function(data) {
