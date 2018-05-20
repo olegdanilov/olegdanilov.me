@@ -105,6 +105,7 @@ html {
 .news > .text {
     font-size: 14px;
     display: inline-block;
+    max-width: 100%;
 }
 
 .bottom_info > .time {
@@ -112,8 +113,6 @@ html {
     padding-right: 17px;
     color: gray;
     font-size: 12px;
-	margin-top: -38px;
-	padding-top: 12px;
 }
 
 .news > .row > .time, .news > .row > .time_edited {

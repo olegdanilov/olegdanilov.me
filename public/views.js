@@ -42,6 +42,7 @@ $(document).ready(function() {
 						if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 							$("head").append('<link rel="stylesheet" type="text/css" href="https://olegdanilov.me/public/m.css">');
 							$(".news_main").removeClass("container");
+							$(".ad").html('<script async src="//ads.people-group.net/327527/1/3/1/" onload="InitAipg_32752700010003(this)"></script>');
 						} else {
 							$(".news_main").css("padding-left", "12%");
 							$(".news_main").css("padding-right", "12%");
