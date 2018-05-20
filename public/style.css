@@ -256,3 +256,7 @@ input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:n
     -webkit-box-shadow: 0 1px 0 0 #1d85ffd1;
     box-shadow: 0 1px 0 0 #1d85ffd1;
 }
+
+iframe {
+    max-width: 100%;
+}

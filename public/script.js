@@ -55,6 +55,8 @@ $(document).ready(function() {
 
 	//translate();
 
+	$("iframe").css("max-width", "100%");
+
 });
 
 function get_lang() {

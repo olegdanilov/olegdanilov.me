@@ -135,40 +135,11 @@ $(document).ready(function() {
 					$('html, body').animate({scrollTop: $("p[go_to=" + class_nav + "]").offset().top}, 800);
 				});
 			});
-		},
-		translate: function() {
-			if (user.get_lang() == "uk-UA" || user.get_lang() == "uk" || user.get_lang() == "uk-ua") {
-				$.ajax({
-					url: "https://olegdanilov.me/public/lang_packs/ua.json",
-					success: function(data) {
-						$("text").each(function() {
-							$(this).html(data[$(this).attr("class")]);
-						});
-					}
-				});
-			}
-			if ((user.get_lang() == "ru-RU" || user.get_lang() == "ru" || user.get_lang() == "ru-ru") && (navigator.languages[1] !== "en-GB" && navigator.languages[1] !== "en-US")) {
-				$.ajax({
-					url: "https://olegdanilov.me/public/lang_packs/ru.json",
-					success: function(data) {
-						$("text").each(function() {
-							$(this).html(data[$(this).attr("class")]);
-						});
-					}
-				});
-			}
-		},
-		get_lang: function() {
-			return navigator && (
-				navigator.language ||
-				navigator.userLanguage ||
-				null );	
 		}
 	}
 
 	content.render_article();
 	content.init_rating();
-	//user.translate(); Nоt nоw, please. It so badly works
 
 });
 
