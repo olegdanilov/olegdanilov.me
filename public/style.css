@@ -19,8 +19,7 @@ html {
 
 .add_coment {
     padding: 20px;
-    padding-bottom: 20px;
-    padding-top: 12px;
+    max-width: 848px;
     background: white;
 }
 
@@ -259,4 +258,8 @@ input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:n
 
 iframe {
     max-width: 100%;
+}
+
+.coments {
+    max-width: 848px;
 }
