@@ -24,7 +24,7 @@ $(document).ready(function() {
 			var data = data.data;
 			for (var i = 0; i < data.length; i++) {
 				var text = "";
-				text += "<div class='news'>";
+				text += "<div class='news' style='background: white;box-shadow: #807f7f2e 0 0 1px 0px;'>";
 				text += "<div class='title read waves-effect' id='" + data[i].id + "'>";
 				text += data[i].title;
 				text += "</div>";
@@ -52,39 +52,4 @@ $(document).ready(function() {
 			// Show content
 		}
 	})
-
-	//translate();
-
-	$("iframe").css("max-width", "100%");
-
 });
-
-function get_lang() {
-	return navigator && (
-		navigator.language ||
-		navigator.userLanguage ||
-		null );	
-}
-
-function translate() {
-	if (get_lang() == "uk-UA" || get_lang() == "uk" || get_lang() == "uk-ua") {
-		$.ajax({
-			url: "https://olegdanilov.me/public/lang_packs/ua.json",
-			success: function(data) {
-				$("text").each(function() {
-					$(this).html(data[$(this).attr("class")]);
-				});
-			}
-		});
-	}
-	if ((user.get_lang() == "ru-RU" || user.get_lang() == "ru" || user.get_lang() == "ru-ru") && (navigator.languages[1] !== "en-GB" && navigator.languages[1] !== "en-US")) {
-		$.ajax({
-			url: "https://olegdanilov.me/public/lang_packs/ru.json",
-			success: function(data) {
-				$("text").each(function() {
-					$(this).html(data[$(this).attr("class")]);
-				});
-			}
-		});
-	}
-}
