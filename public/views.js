@@ -48,7 +48,7 @@ $(document).ready(function() {
 							$(".news_main").css("padding-right", "12%");
 						}
 						content.render_comments();
-						//user.navigation();
+						user.navigation();
 					} else {
 						$(".loading_lable").html(result.error.description);
 					}
@@ -125,10 +125,9 @@ $(document).ready(function() {
 			// Apply navigation system
 			$(".nav_").each(function() {
 				var it_html = $(this).html();
-				$("navigation").append('<headline go_to="' + $(this).attr("go_to") + '">' + it_html + '</headline><br>');
+				$("navigation").append('<headline class="headline" go_to="' + $(this).attr("go_to") + '">' + it_html + '</headline><br>');
 			});
 			$("navigation headline").each(function() {
-				$(this).addClass("waves-effect");
 				var class_nav = $(this).attr("go_to");
 				$(this).html('• ' + $(this).html());
 				$(this).click(function() {
@@ -145,4 +144,15 @@ $(document).ready(function() {
 
 $(document).ajaxError(function() {
 	Materialize.toast("<text class='unknown_error'>Something went wrong. Try again later</text>", 10000);
+});
+
+var lastScrollTop = 0;
+$(window).scroll(function(event){
+	var st = $(this).scrollTop();
+	if (st > lastScrollTop){
+	   $("#header").css("display", "none");
+	} else {
+	   $("#header").css("display", "block");
+	}
+	lastScrollTop = st;
 });

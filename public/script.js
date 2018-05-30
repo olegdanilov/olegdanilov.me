@@ -19,7 +19,7 @@ $(document).ready(function() {
 	}
 	// Lоad news
 	$.ajax({
-		url: "https://olegdanilov.me/news",
+		url: "https://olegdanilov.me/get_news",
 		success: function(data) {
 			var data = data.data;
 			for (var i = 0; i < data.length; i++) {
