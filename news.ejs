@@ -3,7 +3,7 @@
 <head>
 
 	<!-- Tittle -->
-	<title></title>
+	<title><%=title%></title>
 
 	<!-- Charset -->
 	<meta charset="utf-8">
@@ -32,10 +32,15 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="#e9e9e9">
 	<meta name = "viewport" content = "width = 320, initial-scale = 1, user-scalable = no">
-	<meta name="description" class="description" content="1">
-	<meta property="og:title" content="2">
-	<meta property="og:site_name" content="Oleg Danilov"/>
-	<meta property="og:image" content="/public/images/avatar_rounded.png">
+
+	<!-- SEО data -->
+	<meta name="robots" content="index,follow" />
+	<meta property="og:site_name" content="Блог Олега Данилова" />
+	<meta name="description" content="<%=desc%>">
+	<meta property="og:title" content="<%=title%>">
+	<meta property="og:type" content="article" />
+	<meta property="og:site_name" content="<%=title%>">
+	<meta property="og:image" content="<%=img%>"/>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118766006-1"></script>
@@ -55,23 +60,18 @@
 	<!-- Main page preloader END -->
 	</div>
 
-	<!-- Header -->
-	<div id="header">
-		<a href="/">
-			<div class="my_avatar" style="display: inline-block;margin-top: 2px;"></div>
-		</a>
-		<br>
-		<navigation></navigation>
-		<div class="contacts">
-			<a href="https://t.me/olegdanilov604" target="_blank">Contact me in Telegram</a><br>
-			<a href="https://github.com/olegdanilov/olegdanilov.me" target="_blank">View source on GitHub</a>
+	<nav style="padding-left: 8px;">
+		<div class="nav-wrapper">
+			<div class="col s12">
+				<a href="/" class="breadcrumb">Main</a>
+				<a href="#!" class="breadcrumb"><%=title%></a>
+			</div>
 		</div>
-	</div>
-	<!-- Header -->
+	</nav>
 	
-	<div class="content container news_main" style="margin-bottom: 0; padding-left: 0%; padding-right: 0%;">
+	<div class="content container news_main" style="margin-bottom: 0; padding-left: 0%; padding-right: 0%;    padding-top: 0;">
 		<div id="news">
-			<div class="news" style=" padding-left: 3%; padding-right: 3%;">
+			<div class="news" style=" padding-left: 5%; padding-right: 5%;">
 				<div class="title"></div>
 				<div class="text">			
 				</div><br><br><br>

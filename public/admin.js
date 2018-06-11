@@ -101,7 +101,7 @@ cms = {
 	},
 	get_news: function() {
 		$.ajax({
-			url: "https://olegdanilov.me/news",
+			url: "https://olegdanilov.me/get_news",
 			success: function(news) {
 				for (var i = 0; i < news.data.length; i++) {
 					var text = "";

@@ -48,7 +48,7 @@ $(document).ready(function() {
 							$(".news_main").css("padding-right", "12%");
 						}
 						content.render_comments();
-						user.navigation();
+						//user.navigation();
 					} else {
 						$(".loading_lable").html(result.error.description);
 					}

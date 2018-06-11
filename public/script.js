@@ -25,7 +25,10 @@ $(document).ready(function() {
 			for (var i = 0; i < data.length; i++) {
 				var text = "";
 				text += "<div class='news' style='background: white;box-shadow: #807f7f2e 0 0 1px 0px;'>";
-				text += "<div class='title read waves-effect' id='" + data[i].id + "'>";
+				text += "<div class='article_img'>";
+				text += "<img src='" + data[i].img + "' alt='" + data[i].title + "' class='responsive-img read' id='" + data[i].id + "'>";
+				text += "</div>"
+				text += "<div class='title read' id='" + data[i].id + "'>";
 				text += data[i].title;
 				text += "</div>";
 				text += "<div class='text'>";
@@ -45,11 +48,41 @@ $(document).ready(function() {
 				$("head").append('<link rel="stylesheet" href="public/m.css">');
 				$(".last_news").css("padding-left", "0%");
 				$(".last_news").css("padding-right", "0%");
-			} 
+			} else {
+				$(".nav-wrapper").css("display", "inline");
+			}
+			get_last_comments();
 			// Preloader
 			$("#preloader-main").hide();
 			$(".content").fadeIn("slow");
 			// Show content
 		}
-	})
+	});
+
+	function get_last_comments() {
+		$.ajax({
+			url: location.href + "/get_last_comments",
+			success: function(data) {
+				if (data.success) {
+					var text = "";
+					for (var i = 0; i < data.comments.length; i++) {
+						text += "<div class='last_comment'>";
+						text += "<div class='comment_author'>";
+						text += data.comments[i].name.replace(/<\/?[^>]+>/g,'');
+						text += "</div>";
+						text += "<div class='comment_text'>";
+						text += data.comments[i].text.replace(/<\/?[^>]+>/g,'');
+						text += "</div>";
+						text += "<div class='comment_publish_time'>";
+						text += timeConverter(data.comments[i].time);
+						text += "</div></div><br>";
+					}
+					$("#last_comments").html("<b><center>Last comments</center></b><br>" + text);
+				} else {
+					$("#last_comments").html("Can't load comments.");
+				}
+			}
+		});
+	}
+
 });
