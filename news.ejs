@@ -113,13 +113,13 @@
 						var name = $("#name").val();
 					}
 					if ($.trim($("#comment_text").val()).length < 3 || $.trim($("#comment_text").val()).length > 200) {
-						Materialize.toast("Yоur text is too smal or too long", 5000);
+						Materialize.toast("Incorrect lenght", 5000);
 					} else {
 						$.ajax({
 							url: location.href + "/addComment/" + name + "/" + $("#comment_text").val() + "/" + captcha,
 							success: function(data) { 
 								if (data.success) {
-									location.reload(true);
+									Materialize.toast("Your comment was successfully published!", 5000);
 								} else {
 									Materialize.toast(data.error.description, 5000);
 								}
@@ -129,7 +129,7 @@
 				}
 			</script>
 			<button class="btn waves-effect btn-small publich_comment g-recaptcha" data-sitekey="6LcAyVgUAAAAAESj9TmuoNqgQ4lvFR2MZXmXnope" data-callback="publish_comment"><text class="publish_comment">Publish comment</text></button><br>
-			<br><b><text class='note'>Note!</text></b> <text class='comment_willbe_public_avaliable'>Your comment will be public avaliable! If you want, you can keep name empty.</text>
+			<br><b>Note!</b>Your comment will be public avaliable! If you want, you can keep name empty.
 		</div>
 	</div><p go_to="commentList"></p>
 	<div class="container coments content" style="box-shadow: #807f7f2e 0 0 1px 0px;"></div>

@@ -39,16 +39,7 @@ $(document).ready(function() {
 						$("a").each(function() {
 							$(this).addClass("waves-effect");
 						});
-						if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-							$("head").append('<link rel="stylesheet" type="text/css" href="https://olegdanilov.me/public/m.css">');
-							$(".news_main").removeClass("container");
-							$(".ad").html('<script async src="//ads.people-group.net/327527/1/3/1/" onload="InitAipg_32752700010003(this)"></script>');
-						} else {
-							$(".news_main").css("padding-left", "12%");
-							$(".news_main").css("padding-right", "12%");
-						}
 						content.render_comments();
-						//user.navigation();
 					} else {
 						$(".loading_lable").html(result.error.description);
 					}
@@ -120,20 +111,6 @@ $(document).ready(function() {
 			new Fingerprint2().get(function(result, components) {
 				return result;
 			});
-		},
-		navigation: function() {
-			// Apply navigation system
-			$(".nav_").each(function() {
-				var it_html = $(this).html();
-				$("navigation").append('<headline class="headline" go_to="' + $(this).attr("go_to") + '">' + it_html + '</headline><br>');
-			});
-			$("navigation headline").each(function() {
-				var class_nav = $(this).attr("go_to");
-				$(this).html('• ' + $(this).html());
-				$(this).click(function() {
-					$('html, body').animate({scrollTop: $("p[go_to=" + class_nav + "]").offset().top}, 800);
-				});
-			});
 		}
 	}
 
@@ -143,16 +120,5 @@ $(document).ready(function() {
 });
 
 $(document).ajaxError(function() {
-	Materialize.toast("<text class='unknown_error'>Something went wrong. Try again later</text>", 10000);
-});
-
-var lastScrollTop = 0;
-$(window).scroll(function(event){
-	var st = $(this).scrollTop();
-	if (st > lastScrollTop){
-	   $("#header").css("display", "none");
-	} else {
-	   $("#header").css("display", "block");
-	}
-	lastScrollTop = st;
+	Materialize.toast("Something went wrong. Try again later", 10000);
 });

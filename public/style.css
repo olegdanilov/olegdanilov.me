@@ -93,9 +93,9 @@ html {
 }
 
 .news {
-    margin-top: 60px;
     padding: 20px;
 	border-radius: 2px;
+    margin-top: 40px;
 }
 
 .news > .text {
@@ -299,4 +299,51 @@ iframe {
 
 nav {
     background-color: #1d85ffd1;
+}
+
+@media screen and (min-width: 993px) {
+    .nav-wrapper {
+        display: inline;
+    }
+}
+
+@media screen and (max-width: 993px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .breadcrumb:last-child {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 546px) {
+    .breadcrumb:last-child {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 419px) {
+    .breadcrumb:last-child {
+        display: none;
+    }
+    nav {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    #news {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    #news {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
 }

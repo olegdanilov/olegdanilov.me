@@ -44,17 +44,11 @@ $(document).ready(function() {
 			$(".read").click(function() {
 				window.location.replace("https://olegdanilov.me/news/" + $(this).attr("id"));
 			});
-			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-				$("head").append('<link rel="stylesheet" href="public/m.css">');
-				$(".last_news").css("padding-left", "0%");
-				$(".last_news").css("padding-right", "0%");
-			} else {
-				$(".nav-wrapper").css("display", "inline");
-			}
 			get_last_comments();
 			// Preloader
 			$("#preloader-main").hide();
 			$(".content").fadeIn("slow");
+			$("nav").fadeIn("slow");
 			// Show content
 		}
 	});
