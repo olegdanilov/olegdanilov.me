@@ -10,23 +10,22 @@
 
 	<!-- Iсоn -->
 	<link rel="shortcut icon" href="https://olegdanilov.me/public/images/avatar_rounded.png" type="image/x-icon">
-	
+
 	<!-- fonts -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 	<!-- JS scripts -->
 	<script src='https://www.google.com/recaptcha/api.js'></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://olegdanilov.me/public/views.js" defer></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" defer></script>
+	<script src="../public/libs/jquery.min.js"></script>
+	<script src="../public/views.js" defer></script>
+	<script src="../public/libs/materialize.min.js" defer></script>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.8.0/fingerprint2.min.js"></script>
 	<script>$(".content").hide();</script>
 
 	<!-- CSS styles -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-	<link rel="stylesheet" href="https://olegdanilov.me/public/style.css">
+	<link rel="stylesheet" href="../public/libs/materialize.min.css" />
+	<link rel="stylesheet" href="../public/style.css">
 
 	<!-- meta tags -->
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -45,30 +44,32 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118766006-1"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-	  gtag('config', 'UA-118766006-1');
+		gtag('config', 'UA-118766006-1');
 	</script>
 
 </head>
 <body>
 	<div id="preloader-main">
-	  <!-- Main page preloader -->
-	  <center><br><br><br><text class="loading_lable">Loading...</text></center>
-	<!-- Main page preloader END -->
+		<!-- Main page preloader -->
+		<center><br><br><br><text class="loading_lable">Loading...</text></center>
+		<!-- Main page preloader END -->
 	</div>
 
-	<nav style="padding-left: 8px;">
+	<nav>
 		<div class="nav-wrapper">
 			<div class="col s12">
-				<a href="/" class="breadcrumb">Main</a>
+				<a href="/" class="breadcrumb" style="padding-left: 8px;">Main</a>
 				<a href="#!" class="breadcrumb"><%=title%></a>
 			</div>
 		</div>
 	</nav>
-	
+
+	<script>$("nav").hide();</script>
+
 	<div class="content container news_main" style="margin-bottom: 0; padding-left: 0%; padding-right: 0%;    padding-top: 0;">
 		<div id="news">
 			<div class="news" style=" padding-left: 5%; padding-right: 5%;">
@@ -76,9 +77,9 @@
 				<div class="text">			
 				</div><br><br><br>
 				<div class="row">
-					<div class="views"><text class="views_text">Views</text>:</div>
-					<div class="time"><text class="published_time">Published: </text></div>
-					<div class="time_edited"><text class="published_time_edited">Edited: </text></div>
+					<div class="views">Views </div>
+					<div class="time">Published </div>
+					<div class="time_edited">Last edit was </div>
 				</div>
 				<div class="rate">
 					<img src="https://image.flaticon.com/icons/svg/126/126473.svg" alt="like" class="like_img"><div class="like"></div>
@@ -87,18 +88,18 @@
 			</div>
 		</div>
 	</div>
-	<div class="container content add_coment" style="margin-bottom: 0%;box-shadow: #807f7f2e 0 0 1px 0px;">
+	<div class="container content add_coment" style="margin-bottom: 0%;">
 		<div class="commentForm"><p go_to="commentForm"></p>
 			<div class="row">
 				<div class="input-field col s6 name_input">
 					<input value="" id="name" type="text" class="validate" maxlength="32"  data-length="32">
-					<label class="active" for="first_name2"><text class='ur_name'>Your name or nickname</text></label>
+					<label class="active" for="first_name2">Your name or nickname</label>
 				</div>
 			</div>
 			<div class="row a2">
 				<div class="input-field col s12">
 					<input value="" id="comment_text" type="text" class="validate" maxlength="200" data-length="200"></input>
-					<label class="active" for="comment_text"><text class='text_text'>Text</text></label>
+					<label class="active" for="comment_text">Text</label>
 				</div>
 			</div>
 			<script>
@@ -119,7 +120,7 @@
 							url: location.href + "/addComment/" + name + "/" + $("#comment_text").val() + "/" + captcha,
 							success: function(data) { 
 								if (data.success) {
-									Materialize.toast("Your comment was successfully published!", 5000);
+									Materialize.toast("Your comment successfully published!", 5000);
 								} else {
 									Materialize.toast(data.error.description, 5000);
 								}
@@ -128,10 +129,10 @@
 					}
 				}
 			</script>
-			<button class="btn waves-effect btn-small publich_comment g-recaptcha" data-sitekey="6LcAyVgUAAAAAESj9TmuoNqgQ4lvFR2MZXmXnope" data-callback="publish_comment"><text class="publish_comment">Publish comment</text></button><br>
-			<br><b>Note!</b>Your comment will be public avaliable! If you want, you can keep name empty.
+			<button class="btn waves-effect btn-small publich_comment g-recaptcha" data-sitekey="6LcAyVgUAAAAAESj9TmuoNqgQ4lvFR2MZXmXnope" data-callback="publish_comment">Publish comment</button><br>
+			<br><b>Note!</b> Your comment will be public avaliable! If you want, keep name empty.
 		</div>
 	</div><p go_to="commentList"></p>
-	<div class="container coments content" style="box-shadow: #807f7f2e 0 0 1px 0px;"></div>
+	<div class="container coments content"></div>
 </body>
 </html>

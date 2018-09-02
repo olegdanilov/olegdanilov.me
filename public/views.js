@@ -64,13 +64,14 @@ $(document).ready(function() {
 						text += '</div>';
 						text += '<div class="time">';
 						text += main.timeConverter(data.comments[i].time);
-						text += '</div></div>';	
+						text += '</div></div><br>';	
 						$(".grecaptcha-badge").hide();
 					}
 					$(".coments").html(text);
 					// Preloader
 					$("#preloader-main").hide();
 					$(".content").fadeIn("slow");
+					$("nav").fadeIn("slow");
 					// Show content
 				}
 			});
@@ -119,6 +120,6 @@ $(document).ready(function() {
 
 });
 
-$(document).ajaxError(function() {
-	Materialize.toast("Something went wrong. Try again later", 10000);
+$(document).ajaxError(function(e, xhr, opt){
+    Materialize.toast("An error has occured!<br>: " + opt.url + " " + xhr.status, 5000);
 });

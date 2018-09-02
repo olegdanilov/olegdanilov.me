@@ -1,39 +1,41 @@
 html {
 	height: 100%;
-	background: #efefef;
+	background: white;
 }
 
 * {
-    user-select: none;
-    word-wrap: break-word;
+	user-select: none;
+	word-wrap: break-word;
 }
 
 .content {
 	padding: 20px;
 	padding-bottom: 15px;
 	background-color: white;
-    margin-top: 1%;
-    margin-bottom: 4%;
-    padding-top: 2px;
+	margin-top: 1%;
+	margin-bottom: 4%;
+	padding-top: 2px;
 }
 
 .add_coment {
-    max-width: 848px;
+    max-width: 500px;
     background: white;
+    box-shadow: #888888 0 0 1px 0px;
+    border-radius: 8px;
 }
 
 .my_short_info {
-    display: inline;
-    position: fixed;
-    top: 18px;
-    padding-left: 6px;
+	display: inline;
+	position: fixed;
+	top: 18px;
+	padding-left: 6px;
 }
 
 .contacts {
-    position: fixed;
-    top: 2px;
-    right: 10px;
-    font-size: 12px;
+	position: fixed;
+	top: 2px;
+	right: 10px;
+	font-size: 12px;
 }
 
 .btn a {
@@ -41,8 +43,8 @@ html {
 }
 
 .my_avatar {
-    background-size: 100%;
-    width: 61px;
+	background-size: 100%;
+	width: 61px;
 }
 
 #preloader-main {
@@ -55,8 +57,8 @@ html {
 
 .btn {
 	background-color: #1d85ffd1;
-    padding-left: 15px;
-    padding-right: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .btn:hover {
@@ -64,286 +66,320 @@ html {
 }
 
 .last_news > .news > .title {
-    font-size: 23px;
-    margin-top: -19px;
-    display: inline;
-    max-width: 90%;
-    cursor: pointer;
+	font-size: 32px;
+	margin-top: -19px;
+	display: inline;
+	max-width: 90%;
+	cursor: pointer;
 }
 .last_news > .news > .title:hover {
-    color: #1d85ffd1;
+	color: #1d85ffd1;
 }
 
 .news > .title {
-    font-size: 22px;
-    margin-top: -19px;
-    display: inline;
-    max-width: 90%;
+	font-size: 32px;
+	margin-top: -19px;
+	display: inline;
+	max-width: 90%;
 }
 
 .bottom_info > .read {
-    display: inline;
-    font-size: 18px;
-    color: gray;
-    cursor: pointer;
+	display: inline;
+	font-size: 18px;
+	color: gray;
+	cursor: pointer;
 }
 
 .bottom_info {
-    display: block;
+	display: block;
 }
 
 .news {
-    padding: 20px;
-	border-radius: 2px;
-    margin-top: 40px;
+	padding: 20px;
+	margin-top: 40px;
+    background: white;
+    box-shadow: #888888 0 0 1px 0px;
+    border-radius: 10px;
 }
 
 .news > .text {
-    font-size: 14px;
-    display: inline-block;
-    max-width: 100%;
+	font-size: 14px;
+	display: inline-block;
+	max-width: 100%;
+}
+
+.news > .text > p {
+    font-size: 20px;
 }
 
 .bottom_info > .time {
-    text-align: right;
-    padding-right: 17px;
-    color: gray;
-    font-size: 12px;
+	text-align: right;
+	padding-right: 17px;
+	color: gray;
+	font-size: 12px;
 }
 
 .news > .row > .time, .news > .row > .time_edited {
-    color: gray;
-    font-size: 12px;
-    text-align: right;
+	color: gray;
+	font-size: 12px;
+	text-align: right;
 }
 
 img {
 	max-height: 70%;
-    max-width: 100%;
+	max-width: 100%;
 }
 
 .like, .dislike {
 	display: inline;
-    font-size: 32px;
-    color: gray;
+	font-size: 32px;
+	color: gray;
 }
 
 .like_img, .dislike_img {
-    width: 23px;
-    margin-right: 6px;
+	width: 23px;
+	margin-right: 6px;
 }
 
 .dislike_img {
-    margin-left: 8px;
+	margin-left: 8px;
 }
 
 .comment > .name {
-    text-align: left;
-    font-size: 17px;
-    max-width: 55%;
+	text-align: left;
+	font-size: 17px;
+	max-width: 55%;
 }
 
 .comment {
-    margin-top: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .comment > .text {
-    font-size: 13px;
-    max-width: 70%;
+	font-size: 13px;
+	max-width: 100%;
 }
 
 .comment > .time {
-    text-align: right;
-    font-size: 12px;
-    color: gray;
-    max-width: 100%;
+	text-align: right;
+	font-size: 12px;
+	color: gray;
+	max-width: 100%;
 }
 
 .comments {
-    padding-top: 18px;
+	padding-top: 18px;
 }
 
 p {
-    font-size: 18px;
-    margin: 0;
-    padding-top: 6px;
-    padding-bottom: 6px;
+	font-size: 18px;
+	margin: 0;
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
 
 #nav {
-    padding-left: 18px;
-    background: white;
-    padding-top: 8px;
-    position: fixed;
-    top: 1%;
-    padding-right: 8px;
-    padding-bottom: 6px;
-    max-width: 25%;
-    left: 9px;
-    opacity: 1;
-    transition: 1s;
-    font-size: 13px;
+	padding-left: 18px;
+	background: white;
+	padding-top: 8px;
+	position: fixed;
+	top: 1%;
+	padding-right: 8px;
+	padding-bottom: 6px;
+	max-width: 25%;
+	left: 9px;
+	opacity: 1;
+	transition: 1s;
+	font-size: 13px;
 }
 
 .text_views {
-    display: inline;
-    font-size: 12px;
-    color: gray;
-    padding-left: 4px;
+	display: inline;
+	font-size: 12px;
+	color: gray;
+	padding-left: 4px;
 }
 
 .views {
-    font-size: 12px;
-    color: gray;
-    text-align: right;
+	font-size: 12px;
+	color: gray;
+	text-align: right;
 }
 
 .center {
-    margin-top: -6px;
+	margin-top: -6px;
 }
 
 .center_a1 {
-    font-size: 18px; 
-    color: gray; 
-    cursor: pointer; 
-    margin-top: 27px;
+	font-size: 18px; 
+	color: gray; 
+	cursor: pointer; 
+	margin-top: 27px;
 }
 
 .news_main {
-    padding-bottom: 10px;
-    background-color: #efefef;
-    padding-left: 4%;
-    padding-right: 4%;
-    margin-top: -1%;
+	padding-bottom: 10px;
+	background-color: white;
+	padding-left: 4%;
+	padding-right: 4%;
+	margin-top: -1%;
 }
 
 .add_coment {
-    padding-bottom: 10px;
+	padding-bottom: 10px;
 }
 
 .add_coment > .a2 {
-    margin-top: -32px;
+	margin-top: -32px;
 }
 
 .publish_comment {
-    font-size: 18px;
+	font-size: 18px;
 }
 
 .main-page-btn {
-    margin-top: 29px;
+	margin-top: 29px;
 }
 
 input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
-	border-bottom: 1px solid #1d85ffd1;
+	border-bottom: 1px solid #000000;
 }
 
 input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #1d85ffd1;
-    -webkit-box-shadow: 0 1px 0 0 #1d85ffd1;
-    box-shadow: 0 1px 0 0 #1d85ffd1;
+	border-bottom: 1px solid #000000;
+	-webkit-box-shadow: 0 1px 0 0 #000000;
+	box-shadow: 0 1px 0 0 #000000;
 }
 
 label, .active, label > .ur_name, label > .text_text {
-	color: #1d85ffd1;
+	color: #000000;
 }
 
 input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:not(.browser-default), input[type=text].valid:not(.browser-default):focus, input[type=password].valid:not(.browser-default), input[type=password].valid:not(.browser-default):focus, input[type=email].valid:not(.browser-default), input[type=email].valid:not(.browser-default):focus, input[type=url].valid:not(.browser-default), input[type=url].valid:not(.browser-default):focus, input[type=time].valid:not(.browser-default), input[type=time].valid:not(.browser-default):focus, input[type=date].valid:not(.browser-default), input[type=date].valid:not(.browser-default):focus, input[type=datetime].valid:not(.browser-default), input[type=datetime].valid:not(.browser-default):focus, input[type=datetime-local].valid:not(.browser-default), input[type=datetime-local].valid:not(.browser-default):focus, input[type=tel].valid:not(.browser-default), input[type=tel].valid:not(.browser-default):focus, input[type=number].valid:not(.browser-default), input[type=number].valid:not(.browser-default):focus, input[type=search].valid:not(.browser-default), input[type=search].valid:not(.browser-default):focus, textarea.materialize-textarea.valid, textarea.materialize-textarea.valid:focus, .select-wrapper.valid>input.select-dropdown {
-	border-bottom: 1px solid #1d85ffd1;
-    -webkit-box-shadow: 0 1px 0 0 #1d85ffd1;
-    box-shadow: 0 1px 0 0 #1d85ffd1;
+	border-bottom: 1px solid #000000;
+	-webkit-box-shadow: 0 1px 0 0 #000000;
+	box-shadow: 0 1px 0 0 #000000;
 }
 
 iframe {
-    max-width: 100%;
+	max-width: 100%;
 }
 
 .coments {
-    max-width: 848px;
+	max-width: 500px;
+    background: white;
+    box-shadow: #888888 0 0 1px 0px;
+    border-radius: 8px;
+    padding-top: 24px;
 }
 
 #header {
-    position: fixed;
-    transition: .3s ease-out;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    padding: 2px 6px;
-    font-size: 14px;
-    box-shadow: #807f7f2e 0 0 1px 0px;
-    background: #ffffff;
-    z-index: 999999;
+	position: fixed;
+	transition: .3s ease-out;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 60px;
+	padding: 2px 6px;
+	font-size: 14px;
+	box-shadow: #807f7f2e 0 0 1px 0px;
+	background: #ffffff;
+	z-index: 999999;
 }
 
 .headline {
-    display: inline-block;
-    max-width: 30%;
+	display: inline-block;
+	max-width: 30%;
 }
 
 .last_comment > .comment_author, .last_comment > .comment_publish_time {
-    font-size: 12px;
+	font-size: 12px;
 }
 
 .last_comment > .comment_publish_time {
-    text-align: right;
+	text-align: right;
 }
 
 .last_comment > .comment_text {
-    font-size: 15px;
+	font-size: 15px;
 }
 
 #last_comments {
-    padding-top: 14px;
-    padding-bottom: 0px;
+	padding-top: 14px;
+	padding-bottom: 0px;
+}
+
+.toast, .btn {
+    background: white;
+    box-shadow: #888888 0 0 1px 0px;
+    border-radius: 10px;
+    color: black;
+}
+
+.btn:hover {
+    box-shadow: #131313 0 0 1px 0px;
+    background: white;
+}
+
+.btn:focus, .btn-large:focus, .btn-floating:focus {
+    box-shadow: #131313 0 0 1px 0px;
+    background: white;
+}
+
+input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=password]:not(.browser-default):focus:not([readonly])+label, input[type=email]:not(.browser-default):focus:not([readonly])+label, input[type=url]:not(.browser-default):focus:not([readonly])+label, input[type=time]:not(.browser-default):focus:not([readonly])+label, input[type=date]:not(.browser-default):focus:not([readonly])+label, input[type=datetime]:not(.browser-default):focus:not([readonly])+label, input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, input[type=tel]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, input[type=search]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+	color: black;
 }
 
 nav {
-    background-color: #1d85ffd1;
+    background-color: #000000;
 }
 
 @media screen and (min-width: 993px) {
-    .nav-wrapper {
-        display: inline;
-    }
+	.nav-wrapper {
+		display: inline;
+	}
 }
 
 @media screen and (max-width: 993px) {
-    .container {
-        width: 100%;
-    }
+	.container {
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 375px) {
-    .breadcrumb:last-child {
-        font-size: 10px;
-    }
+	.breadcrumb:last-child {
+		font-size: 10px;
+	}
 }
 
 @media screen and (max-width: 546px) {
-    .breadcrumb:last-child {
-        font-size: 13px;
-    }
+	.breadcrumb:last-child {
+		font-size: 13px;
+	}
 }
 
 @media screen and (max-width: 419px) {
-    .breadcrumb:last-child {
-        display: none;
-    }
-    nav {
-        text-align: center;
-    }
-}
-
-@media screen and (min-width: 1900px) {
-    #news {
-        padding-left: 20%;
-        padding-right: 20%;
-    }
+	.breadcrumb:last-child {
+		display: none;
+	}
+	nav {
+		text-align: center;
+	}
 }
 
 @media screen and (min-width: 2560px) {
-    #news {
-        padding-left: 10%;
-        padding-right: 10%;
-    }
+	#news {
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+}
+
+@media screen and (min-width: 996px) {
+	#news {
+		padding-left: 15%;
+		padding-right: 15%;
+	}
 }

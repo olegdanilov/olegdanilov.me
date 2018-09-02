@@ -10,7 +10,7 @@
 
 	<!-- Iсоn -->
 	<link rel="shortcut icon" href="public/images/avatar_rounded.png" type="image/x-icon">
-	
+
 	<!-- fonts -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -20,7 +20,7 @@
 	<script src="public/admin.js" defer></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" defer></script>
 	<script>$(".content").hide();</script>
-	
+
 	<!-- CSS styles -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
 	<link rel="stylesheet" href="public/style.css">
@@ -38,34 +38,34 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118766006-1"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-	  gtag('config', 'UA-118766006-1');
+		gtag('config', 'UA-118766006-1');
 	</script>
 
 </head>
 <body>
 	<div id="preloader-main">
-	  <!-- Main page preloader -->
-	  <center><br><br><br><text class="loading_lable">Loading...</text></center>
-	<!-- Main page preloader END -->
+		<!-- Main page preloader -->
+		<center><br><br><br><text class="loading_lable">Loading...</text></center>
+		<!-- Main page preloader END -->
 	</div>
 	<center><h3>Admin panel</h3></center>
 	<div class="content container z-depth-1">
 		<div id="auth">
-	      <div class="row">
-	        <div class="input-field col s12">
-	          <input id="Username" type="text" class="validate">
-	        </div>
-	       </div>
-	       <div class="row">
-	        <div class="input-field col s12">
-	          <input id="Password" type="password" class="validate">
-	        </div>
-	      </div>
-	      <div id="auth-btn" class="btn waves-effect">Log in</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="Username" type="text" class="validate">
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="Password" type="password" class="validate">
+				</div>
+			</div>
+			<div id="auth-btn" class="btn waves-effect">Log in</div>
 		</div>
 
 		<!-- After auth -->
@@ -86,7 +86,7 @@
 			<div class="btn waves-effect add_news">Publish news</div><br>
 		</div>
 	</div>
-    <div class="container content z-depth-1 news_list">
+	<div class="container content z-depth-1 news_list">
 		<table class="responsive-table news_list_table">
 			<tr>
 				<td>Id</td>
@@ -97,10 +97,10 @@
 				<td></td>
 			</tr>
 		</table>
-    </div>
-    <!-- News editоr -->
-    <div class="container content z-depth-1 news_editоr">
-    	<div class="row">
+	</div>
+	<!-- News editоr -->
+	<div class="container content z-depth-1 news_editоr">
+		<div class="row">
 			<div class="input-field col s12">
 				<textarea id="news_text_edit" class="materialize-textarea" data-length="10000" placeholder="Text"></textarea>
 			</div>

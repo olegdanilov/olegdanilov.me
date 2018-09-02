@@ -10,20 +10,20 @@
 
 	<!-- Iсоn -->
 	<link rel="shortcut icon" href="public/images/avatar_rounded.png" type="image/x-icon">
-	
+
 	<!-- fonts -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 	<!-- JS scripts -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="public/script.js" defer></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" defer></script>
-	<script>$(".content").hide();$("nav").hide();</script>
-	
+	<script src="../public/libs/jquery.min.js"></script>
+	<script src="../public/script.js" defer></script>
+	<script src="../public/libs/materialize.min.js" defer></script>
+	<script>$(".content").hide();</script>
+
 	<!-- CSS styles -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-	<link rel="stylesheet" href="public/style.css">
+	<link rel="stylesheet" href="../public//libs/materialize.min.css" />
+	<link rel="stylesheet" href="../public/style.css">
 
 	<!-- meta tags -->
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -38,19 +38,19 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118766006-1"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-	  gtag('config', 'UA-118766006-1');
+		gtag('config', 'UA-118766006-1');
 	</script>
 
 </head>
 <body>
 	<div id="preloader-main">
-	  <!-- Main page preloader -->
-	  <center><br><br><br><text class="loading_lable">Loading...</text></center>
-	<!-- Main page preloader END -->
+		<!-- Main page preloader -->
+		<center><br><br><br><text class="loading_lable">Loading...</text></center>
+		<!-- Main page preloader END -->
 	</div>
 
 	<nav style="padding-left: 8px;">
@@ -62,6 +62,8 @@
 			</ul>
 		</div>
 	</nav>
+
+	<script>$("nav").hide();</script>
 
 	<!-- news -->
 	<div class="content container last_news" style="background: 0; padding-left: 10%;padding-right: 10%;" id="news"></div>

@@ -24,7 +24,7 @@ $(document).ready(function() {
 			var data = data.data;
 			for (var i = 0; i < data.length; i++) {
 				var text = "";
-				text += "<div class='news' style='background: white;box-shadow: #807f7f2e 0 0 1px 0px;'>";
+				text += "<div class='news' style='background: white;box-shadow: #807f7f 0 0 1px 0px;'>";
 				text += "<div class='article_img'>";
 				text += "<img src='" + data[i].img + "' alt='" + data[i].title + "' class='responsive-img read' id='" + data[i].id + "'>";
 				text += "</div>"
